@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- У sender.html -->
+<input type="text" id="messageInput">
+<button onclick="sendMessage()">Надіслати</button>
+<script>
+    // У sender.html
+const socket = new WebSocket('ws://localhost:3000'); // Призначте власну адресу тут
+
+function sendMessage() {
+    const message = document.getElementById('messageInput').value;
+    socket.send(message);
+    document.getElementById('messageInput').value = ''; // Очистити поле вводу
+}
+</script>
+</body>
+</html>
